@@ -31,11 +31,11 @@ jobs:
 
         steps:
             - name: Checkout code
-            uses: actions/checkout@v2
+              uses: actions/checkout@v2
 
             - name: Set up Python 3.10.10
-                uses: actions/setup-python@v2
-                with:
+              uses: actions/setup-python@v2
+              with:
                 # Semantic version range syntax or exact version of a Python version
                 python-version: '3.10.10' 
                 # Optional - x64 or x86 architecture, defaults to x64
@@ -46,10 +46,6 @@ jobs:
                 python -m pip install --upgrade pip
                 if [ -f lesson2/requirements.txt ]; then pip install -r lesson2/requirements.txt; fi
                 
-            # - name: Run unit test
-            #     run: |
-            #     coverage run --source=./ -m unittest discover -p "*_test.py"
-                
             - name: Publish code coverage
                 uses: paambaati/codeclimate-action@v3.0.0
                 with:
@@ -57,4 +53,3 @@ jobs:
                     coverageLocations: ${{github.workspace}}/coverage.xml:coverage.py
                 env:
                     CC_TEST_REPORTER_ID: ${{  secrets.CC_TEST_REPORTER_ID  }}
-                    # ENV: local
