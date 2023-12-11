@@ -11,7 +11,7 @@ jobs:
             PYTHON: '3.10'
         steps:                
             - name: Checkout code
-                uses: actions/checkout@v2
+              uses: actions/checkout@v2
 
             - name: Line Code Base
               uses: github/super-linter@v4
